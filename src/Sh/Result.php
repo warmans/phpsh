@@ -2,7 +2,7 @@
 namespace Sh;
 
 /**
- * Result
+ * Shell Result
  *
  * @author warmans
  */
@@ -37,11 +37,11 @@ class Result
     }
 
     public function verify(array $allowed_status=array(0)){
-        if(!in_array($this->status, $allowed_status))
-        {
+        if (!in_array($this->status, $allowed_status)) {
             throw new \RuntimeException(
-                "Command '$this->cmd' failed with status $this->status. ERR: $this->stderr, OUT: $this->stdout"
+                "Command '$this->cmd' failed with status $this->status.\n ERR: $this->stderr\n OUT: $this->stdout\n"
             );
         }
+        return true;
     }
 }
